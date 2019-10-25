@@ -35,6 +35,10 @@ export default {
   {src: '~/plugins/vue-infinite-scroll.js', mode: 'client'
 
 }
+,
+  {src: '~/plugins/vue-burger-menu.js', mode: 'client'
+
+}
 ],
   /*
   ** Nuxt.js dev-modules

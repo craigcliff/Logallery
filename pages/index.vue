@@ -1,8 +1,15 @@
 <template>
   
 
-   
+     
     <div>
+      <no-ssr>
+      <Slide>
+      <a id="home" href="#">
+        <span>Home</span>
+      </a>
+    </Slide>
+        </no-ssr>
        <no-ssr>
     <vue-gallery :images="images" :index="index" @close="index = null"></vue-gallery>
      </no-ssr>
@@ -24,6 +31,7 @@
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 //import VueGallery from 'Vue-Gallery';
+
 
 export default {
    data: function () {

@@ -12,7 +12,7 @@
     v-for="(person,imageIndex) in persons"
     :key="imageIndex"
     @click="index = imageIndex"
-    :style="{ backgroundImage: 'url(' + person + ')', width: '450px', height: '450px' ,backgroundSize: 'cover'}"
+    :style="{ backgroundImage: 'url(' + person + ')', width, height ,backgroundSize: 'cover'}"
     >
       <!-- <div class="left">
         <img :src="person.message">
@@ -37,7 +37,9 @@ export default {
         busy: false,
         limit: 10,
         getW:"",
-        InitialImages: 0
+        InitialImages: 0,
+        width: "250px",
+        height: '250px'
       };
     },
   components: {
@@ -45,11 +47,17 @@ export default {
   },
   methods: {
   getInitialUsers () {
-      if (parseInt(this.getW) > 400){
+      if (this.getW > "400"){
+          console.log("Width is....... " + this.getW)
           this.InitialImages = 30
+          this.width = "450px"
+          this.height = "450px"
       }
       else{
-this.InitialImages = 5
+          console.log("Width is....... " + this.getW)
+this.InitialImages = 10
+this.width = "150px"
+          this.height = "150px"
       }
 
       
@@ -83,6 +91,7 @@ this.InitialImages = 5
   },
    getWidth() {	
         this.getW = screen.width;
+        console.log(typeof this.getW);
         console.log("The width is: " + this.getW )
     }
   
@@ -90,10 +99,11 @@ this.InitialImages = 5
 
 mounted() {
  this.scroll(this.person);
- this.getWidth()
+ 
 },
 
 beforeMount() {
+    this.getWidth()
   this.getInitialUsers();
 }
 
@@ -126,7 +136,7 @@ beforeMount() {
 //  -webkit-box-flex: auto;
   -ms-flex: auto;
   flex: auto; 
-  width: 200px; 
+  width: 100px; 
   margin: .5vw; 
 
     }
@@ -135,7 +145,7 @@ beforeMount() {
 
 
     @media screen and (max-width: 400px) {
-  .cards .image { margin: 0; }
+  .cards .image { margin: .5vw; }
   .cards { padding: 0; }
   
 }
